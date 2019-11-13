@@ -1,21 +1,23 @@
 #### Installation
-`virtualenv flask`
+`virtualenv -p python3 venv`
 
 `source venv/bin/activate`
 
-`pip freeze > requirements.txt`
+`pip3 freeze > requirements.txt`
 
-`pip install -r requirements.txt`
+`pip3 install -r requirements.txt`
+
+`python3 app/main.py`
 
 
+`docker build -t cloudwaysdev/flaskgunicorn .`
 
-`docker build -t flaskgunicorn .`
-
-`docker run -d --name flaskapp -p 80:80 flaskgunicorn`
+`docker run -d --name flaskapp -p 80:80 cloudwaysdev/flaskgunicorn`
 
 ## push
-`docker login --username=khawarhere`
-
-`docker tag flaskgunicorn cloudwaysdev/flaskgunicorn:latest`
+`docker login --username=myuser`
 
 `docker push cloudwaysdev/flaskgunicorn:latest`
+
+
+`docker system prune`
